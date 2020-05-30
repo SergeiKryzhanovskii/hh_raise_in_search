@@ -5,9 +5,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import NoSuchElementException
 from playsound import playsound
 import sys
 import datetime
+import getpass
 
 
 def init_driver():
@@ -53,20 +55,30 @@ def update_time():
         now = datetime.datetime.now()
         time_ec = now.isoformat()
         with open('log.txt', 'a') as file:
-            file.write(f'Кнопка неактивна (ElementClickInterceptedException), {time_ec} \n')
+            file.write(f'Element Click Intercepted Exception, {time_ec} \n')
+        driver.quit()
+        sys.exit()
+    except NoSuchElementException:
+        playsound('sounds/pomogite-spasite-sos.mp3')
+        now = datetime.datetime.now()
+        time_ec = now.isoformat()
+        with open('log.txt', 'a') as file:
+            file.write(f'No Such Element Exception, {time_ec} \n')
         driver.quit()
         sys.exit()
 
 
 if __name__ == '__main__':
     login = input('Please, enter phone or email: ').split()
-    my_password = input('Please, enter password: ').split()
+    my_password = getpass.getpass('Please, enter password: ').split()
     now = datetime.datetime.now()
+    time_up = now.isoformat()
     count = 1
     driver = init_driver()
     login_hh()
     update_time()
-    print(f'CV update: {count}.', now.isoformat())
+    with open('log.txt', 'a') as file:
+        file.write(f'CV update: {count}, {time_up} \n')
     for i in range(100):
         time.sleep(14500)
         now = datetime.datetime.now()
