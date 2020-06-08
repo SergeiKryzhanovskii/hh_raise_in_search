@@ -1,15 +1,16 @@
 # -*- python3/ utf-8 -*-
 
 import time
+import sys
+import datetime
+import getpass
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.common.exceptions import NoSuchElementException
 from playsound import playsound
-import sys
-import datetime
-import getpass
+
 
 
 def init_driver():
