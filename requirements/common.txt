@@ -1,0 +1,4 @@
+Python==3.8.4
+Selenium==3.141;
+beautifulsoup4==4.9.1
+playsound==1.2.2
