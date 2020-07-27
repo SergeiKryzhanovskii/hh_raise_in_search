@@ -1,4 +1,4 @@
-# Сode for receiving user data from the [gosuslugi.ru](https://www.gosuslugi.ru/ "gosuslugi.ru")
+# Script for raise your resume in search on the site [hh.ru](https://hh.ru/)
 ### Main stack
 - [Python](https://www.python.org/downloads/ "Python") v3.8.3;
 - [Selenium](https://www.selenium.dev/downloads/ "Selenium") v3.141;
